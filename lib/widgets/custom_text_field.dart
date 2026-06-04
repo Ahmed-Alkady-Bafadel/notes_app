@@ -3,16 +3,17 @@ import 'package:noteapp/constants.dart';
 
 // ignore: must_be_immutable
 class CustomTextField extends StatelessWidget {
-  CustomTextField({super.key});
+  CustomTextField({super.key, required this.hint, this.maxLines = 1});
 
+  final String hint;
+  final int maxLines;
   Widget build(BuildContext context) {
     return TextField(
       cursorColor: kPrimaryColor,
+      maxLines: maxLines,
       decoration: InputDecoration(
-        hintText: 'Title',
-        hintStyle:const TextStyle(
-          color: kPrimaryColor,
-        ),
+        hintText: hint,
+        hintStyle: const TextStyle(color: kPrimaryColor),
         border: buildBorder(),
         enabledBorder: buildBorder(),
         focusedBorder: buildBorder(kPrimaryColor),
